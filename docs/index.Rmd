@@ -1,45 +1,66 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
-date: '2022-11-01'
+title: "A4: Incarceration"
+author: "Sophia Ylinen"
+date: '2022-11-20'
 output: html_document
 ---
 
 ```{r echo=FALSE, eval=TRUE, message=FALSE}
-source("../source/a4-helpers.R")
 source("../source/analysis.R")
 ```
 
-## Abstract 
-[TODO: Include a short abstract (about 50 words)]
-
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
-
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
-
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
-```
-
 ## Introduction 
-[TODO]
+The Vera Institute’s mission is to end mass incarceration. They discuss the causes of mass incarceration, criminalization and racial disparities, reducing incarceration, and the idea of dignity behind bars. In addition, they look at investing in communities and solutions as well as research. The direct stakeholders are the racial populations this dataset depicts, including White, Black, AAPI, Latinx, and Native populations. Indirect stakeholders may be members of these groups that are not incarcerated, as the data may reflect outside perspectives on these groups.
+	
+In this project, I will be looking at the **incarceration rate of racial populations** of ages 15 through 64. Specifically, I will be looking primarily at Black and White populations. Looking at these proportions will provide a more nuanced perspective of the reality of incarceration in this country. Additionally, I will examine **incarceration rates over time** to see how the country is evolving whether positively or negatively, as well as by **location**, looking at differences between states for populations.
+
 
 ## Data Summary 
-[TODO]
 
-[TODO ... other sections ... See Canvas for details]
+Analyzing this data set can lead to a more nuanced understanding of the racial implications of the American incarceration system. Firstly, the average proportion of people who were incarcerated in the most recent year, 2018, is **`r avg_pop_jail`**. Secondly, it was important to compare different racial populations and their proportions.
 
-_All the very best with your work!_
+  - The Black population is **`r black_prop_avg`** of the total population. However, they are **`r black_jail_avg`** of the jail population. This means that there is a significantly larger average proportion rate of Black people incarcerated than the average proportion rate they take up in the total population.
+  - The white population is **`r white_prop_avg`** of the total population. However, they are **`r white_jail_avg`** of the jail population. This means that there is a lower average proportion rate of White people incarcerated than the average proportion rate they take up in the total population.
+  
+  Historically, Black populations have been overpoliced in order for the oppressor population to maintain their power. This could partially explain the difference in proportions for the Black population and the White population.
+
+## Growth of the U.S. Prison Population
+```{r prisonpop, echo=FALSE}
+plot(plot_jail_pop_for_us())
+```
+
+### Summary
+**Have incarceration rates increased in the U.S.?**
+
+Yes, they have, there being a major increase beginning in 1980. It also begins to increase more as the years go on, only recently stopping the increase. However, this data does not increase COVID years, which have the potential to be increasing again after the events of 2020.
+
+## Growth of Prison Population by State
+
+```{r popstate, echo = FALSE, warning = FALSE}
+plot(plot_jail_pop_by_states(c("WA", "OR", "CA", "AZ")))
+```
+### Summary
+**What can this graph show us?**
+This graph can depict how different states' incarceration rates relate to each other. Context may be required to fully understand how to interpret the graph. Context could include laws and legalization of drugs that may impact incarceration rates. Some states have stricter laws regarding crimes that will impact how someone's trial or time being incarceration will last.
+
+## Patterns of Inequality
+
+```{r pattern, echo=FALSE}
+plot(incarceration_trend_chart)
+```
+### Summary
+**How do the incarceration rates of White and Black populations compare?**
+This section asks to look at the relationship between two variables that could reveal potential patterns of inequality. Because the White population is higher, it is likely that the incarceration rate would be higher. However, this is not proportion like values calculated previously, so there is information missing for context.
+
+## Maps
+
+```{r map, echo=FALSE}
+plot(black_map)
+```
+### Summary
+**Wh can this visualization tell us?**
+
+This visualization takes the average Black population rate of incarceration in order to create this map. This map does not really provide any significant information besides Nevada being much higher than other states. It is also higher in New Mexico, Missouri, Kentucky, and West Virginia.
+
+
 
