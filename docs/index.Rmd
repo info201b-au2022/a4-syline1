@@ -9,6 +9,10 @@ output: html_document
 source("../source/analysis.R")
 ```
 
+**Abstract**
+
+This project is about exploring the role of race, location, and trends over time of incarceration in the United States. Manipulating data and creating ways to visualize this data will aid understanding in how to interpret the data. 
+
 ## Introduction 
 The Vera Institute’s mission is to end mass incarceration. They discuss the causes of mass incarceration, criminalization and racial disparities, reducing incarceration, and the idea of dignity behind bars. In addition, they look at investing in communities and solutions as well as research. The direct stakeholders are the racial populations this dataset depicts, including White, Black, AAPI, Latinx, and Native populations. Indirect stakeholders may be members of these groups that are not incarcerated, as the data may reflect outside perspectives on these groups.
 	
@@ -17,7 +21,7 @@ In this project, I will be looking at the **incarceration rate of racial populat
 
 ## Data Summary 
 
-Analyzing this data set can lead to a more nuanced understanding of the racial implications of the American incarceration system. Firstly, the average proportion of people who were incarcerated in the most recent year, 2018, is **`r avg_pop_jail`**. Secondly, it was important to compare different racial populations and their proportions.
+Analyzing this data set can lead to a more nuanced understanding of the racial implications of the American incarceration system. It's important to compare different racial populations and their proportions.
 
   - The Black population is **`r black_prop_avg`** of the total population. However, they are **`r black_jail_avg`** of the jail population. This means that there is a significantly larger average proportion rate of Black people incarcerated than the average proportion rate they take up in the total population.
   - The white population is **`r white_prop_avg`** of the total population. However, they are **`r white_jail_avg`** of the jail population. This means that there is a lower average proportion rate of White people incarcerated than the average proportion rate they take up in the total population.
@@ -36,9 +40,9 @@ Yes, they have, there being a major increase beginning in 1980. It also begins t
 
 ## Growth of Prison Population by State
 
-```{r popstate, echo = FALSE, warning = FALSE}
+(if code ran, here would be {r popstate, echo=FALSE, warning=FALSE}
 plot(plot_jail_pop_by_states(c("WA", "OR", "CA", "AZ")))
-```
+
 ### Summary
 **What can this graph show us?**
 This graph can depict how different states' incarceration rates relate to each other. Context may be required to fully understand how to interpret the graph. Context could include laws and legalization of drugs that may impact incarceration rates. Some states have stricter laws regarding crimes that will impact how someone's trial or time being incarceration will last.
@@ -48,6 +52,7 @@ This graph can depict how different states' incarceration rates relate to each o
 ```{r pattern, echo=FALSE}
 plot(incarceration_trend_chart)
 ```
+
 ### Summary
 **How do the incarceration rates of White and Black populations compare?**
 This section asks to look at the relationship between two variables that could reveal potential patterns of inequality. Because the White population is higher, it is likely that the incarceration rate would be higher. However, this is not proportion like values calculated previously, so there is information missing for context.
@@ -57,8 +62,9 @@ This section asks to look at the relationship between two variables that could r
 ```{r map, echo=FALSE}
 plot(black_map)
 ```
+
 ### Summary
-**Wh can this visualization tell us?**
+**What can this visualization tell us?**
 
 This visualization takes the average Black population rate of incarceration in order to create this map. This map does not really provide any significant information besides Nevada being much higher than other states. It is also higher in New Mexico, Missouri, Kentucky, and West Virginia.
 

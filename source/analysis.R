@@ -9,8 +9,6 @@ library(lintr)
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
-library(maps)
-library(scales)
 
 incarceration_data <- read.csv("https://raw.githubusercontent.com/vera-institute/incarceration-trends/master/incarceration_trends.csv")
 #How many observations (rows) are in your data?
@@ -102,17 +100,18 @@ get_jail_pop_by_state <- function(states) {
 }
 
 
-plot_jail_pop_by_states <- function(states) {
-  ggplot(data = get_jail_pop_by_state()) +
-    geom_line(
-      mapping = aes(x = year, y = pop, color = state),
-              size = 1, inherit.aes = FALSE) +
-    labs(x = "Year", y = "Total Jail Population",
-         title = "Jail Population in States",
-         color = "States")
-}
+# plot_jail_pop_by_states <- function(states) {
+#  ggplot(data = get_jail_pop_by_state()) +
+#    geom_line(
+#      mapping = aes(x = year, y = pop, color = state),
+#              size = 1, inherit.aes = FALSE) +
+#    labs(x = "Year", y = "Total Jail Population",
+#         title = "Jail Population in States",
+ #        color = "States")
+#}
+#This didn't run correctly
 
-plot(plot_jail_pop_by_states())
+#plot(plot_jail_pop_by_states())
 # See Canvas
 #----------------------------------------------------------------------------#
 
